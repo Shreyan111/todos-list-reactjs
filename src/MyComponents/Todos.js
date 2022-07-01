@@ -1,0 +1,23 @@
+import React from 'react'
+import {TodoItem} from "./TodoItem";
+
+export const Todos = (props) => {
+    let myStyle = {
+        minHeight : "70vh",
+        margin : "0 0 0 75px",
+    }
+    return (
+        <div className = "conatiner my-3" style={myStyle}>
+            <h3>Todos List</h3>
+            {props.todos.length===0? "No Todos to display" :
+            props.todos.map((todo) => {
+                return( 
+                    <>
+                    <TodoItem todo = {todo} key={todo.sno} onDelete={props.onDelete}/> <hr/>
+                    </>
+                )
+            })
+            }
+        </div>
+    )
+}
